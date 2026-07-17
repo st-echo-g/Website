@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Echo St. Germain · CV</title>
+    <style>
+      body {
+        --bg: #d9d9d9;
+        --text: #000000;
+        background: var(--bg);
+        color: var(--text);
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 40px clamp(20px, 8vw, 200px) 60px;
+      }
+      a {
+        color: var(--text);
+      }
+      .back {
+        display: inline-block;
+        margin-bottom: 24px;
+      }
+      .card {
+        border: 1px solid var(--text);
+        border-radius: 8px;
+        box-shadow: 4px 4px 0 var(--text);
+        padding: 40px;
+      }
+      h1 {
+        margin-top: 0;
+      }
+      h2 {
+        margin-top: 40px;
+        border-bottom: 1px solid var(--text);
+        padding-bottom: 6px;
+      }
+      .entry {
+        display: flex;
+        gap: 20px;
+        padding: 12px 0;
+      }
+      .date {
+        flex: 0 0 120px;
+        font-size: 0.85rem;
+      }
+      .entry h3, .entry h4, .entry p {
+        margin: 0 0 4px;
+      }
+      .entry h3, .entry h4 {
+        font-size: 1.05rem;
+      }
+      .entry p {
+        font-size: 0.9rem;
+      }
+      .sub {
+        margin: 24px 0 8px;
+        font-size: 1rem;
+        font-style: italic;
+      }
+      .contact {
+        margin: 0 0 8px;
+        font-size: 0.9rem;
+      }
+      @media (max-width: 600px) {
+        .card {
+          padding: 24px;
+        }
+        .entry {
+          flex-direction: column;
+          gap: 4px;
+        }
+        .date {
+          flex-basis: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="back" href="index.html">&larr; Home</a>
+
+    <div class="card">
+      <h1>Echo Gaugush St. Germain</h1>
+      <p class="contact">
+        <a href="https://orcid.org/0000-0002-9175-5905">ORCID: 0000-0002-9175-5905</a>
+      </p>
+      <p class="contact">
+        <a href="files/cv.pdf" download>Download PDF &darr;</a>
+      </p>
+
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="date">Sep 2023 – May 2028</div>
+        <div>
+          <h3>PhD in Mechanical Engineering</h3>
+          <p>Northeastern University · Materials Science Concentration · Boston, MA</p>
+          <p>Chair's Fellowship recipient. Advised by Prof. Levendis and Prof. Erb.</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">Sep 2018 – May 2023</div>
+        <div>
+          <h3>BS in Mechanical Engineering</h3>
+          <p>Northeastern University · Minors in History and Mathematics · Boston, MA</p>
+          <p>Connections Merit Scholarship recipient.</p>
+        </div>
+      </div>
+
+      <h2>Publications</h2>
+      <div class="entry">
+        <div class="date">2026</div>
+        <div>
+          <h3>Iron Particle Ignition Inhibition by Prior Surface Oxidation</h3>
+          <p>E. St. Germain, X. Mi, R. M. Erb, Y. A. Levendis · Combustion and Flame, vol. 289, Article 115029</p>
+          <p><a href="https://doi.org/10.1016/j.combustflame.2026.115029">doi &rarr; open access</a></p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">2026</div>
+        <div>
+          <h3>An experimental study on the ignition temperature of iron particles in an electrically-heated drop-tube furnace</h3>
+          <p>D. Chang, E. St. Germain, R. M. Erb, X. Mi, J. M. Bergthorson, Y. A. Levendis · Fuel, vol. 404, Article 136199 · Co-first authors</p>
+          <p><a href="https://doi.org/10.1016/j.fuel.2025.136199">doi &rarr; open access</a></p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">2022</div>
+        <div>
+          <h3>Thermoformable Boron Nitride Based All-Ceramics</h3>
+          <p>J. E. Bice, E. St. Germain, S. J. Wohlever, G. Goddard, R. M. Erb · Advanced Materials, vol. 34, Article 2203939</p>
+          <p><a href="https://doi.org/10.1002/adma.202203939">doi &rarr;</a></p>
+        </div>
+      </div>
+
+      <h2>Experience</h2>
+      <div class="entry">
+        <div class="date">Nov 2024 – Present</div>
+        <div>
+          <h3>CommLab Fellow</h3>
+          <p>Northeastern University · Boston, MA</p>
+          <p>Supporting graduate students with research communication through office hours and workshops, with a primary focus on posters.</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">Sep 2023 – Present</div>
+        <div>
+          <h3>Research Fellow</h3>
+          <p>Northeastern University · Boston, MA</p>
+          <p>Studying iron particle combustion and nanoparticle formation as a source of clean energy in the Levendis and Erb labs.</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">Jun 2022 – Jul 2023</div>
+        <div>
+          <h3>R&amp;D Materials Engineer</h3>
+          <p>Fourier LLC · Boston, MA</p>
+          <p>Continued development of a novel thermoformable ceramic for thermal management applications.</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">Jan 2022 – Jun 2022</div>
+        <div>
+          <h3>Materials Engineering Co-op</h3>
+          <p>Fortify · Boston, MA</p>
+          <p>Formulation and printing workflow for new materials, including build setup, post-processing, and property characterization.</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">Sep 2021 – Dec 2021</div>
+        <div>
+          <h3>ME Research Assistant</h3>
+          <p>Northeastern University · Boston, MA</p>
+          <p>Prepared ceramic resin samples on a custom vibration table, examined particle alignment via SEM, and used FEA to map vibrational nodes.</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">Jan 2021 – Jun 2021</div>
+        <div>
+          <h3>Hardware &amp; Production Co-op</h3>
+          <p>Hydrow · Cambridge, MA</p>
+          <p>Designed testing rig modifications for product lifetime testing and an encoder case for a new flywheel system.</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">Jan 2020 – Jun 2020</div>
+        <div>
+          <h3>ME Co-op</h3>
+          <p>Zaiput Flow Technologies · Waltham, MA</p>
+          <p>Created ASME Y14.5M SolidWorks drawings, supported early-stage development of a multichambered continuous-flow crystallization device, and implemented ~100 Kanban cards.</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">Sep 2019 – Dec 2019</div>
+        <div>
+          <h3>Teaching Assistant</h3>
+          <p>Northeastern University · Boston, MA</p>
+          <p>Lab sections and grading for Cornerstone of Engineering 1, a first-year introduction to engineering design and practice.</p>
+        </div>
+      </div>
+
+      <h2>Presentations</h2>
+      <div class="entry">
+        <div class="date">Dec 2025</div>
+        <div>
+          <h3>Investigating the Combustion Synthesis of Iron Oxide Nanoparticles Within the Iron Fuel Cycle</h3>
+          <p>MRS Fall Meeting &amp; Exhibit</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">Mar 2025</div>
+        <div>
+          <h3>Effects of Heating Rate and Oxide Layer Growth on the Ignition of Iron Powder</h3>
+          <p>14th U.S. National Combustion Meeting</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">Dec 2024</div>
+        <div>
+          <h3>Exploring the Practicality of Iron as a Sustainable Replacement to Coal</h3>
+          <p>MRS Fall Meeting &amp; Exhibit</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">Oct 2024</div>
+        <div>
+          <h3>Generation of Iron Oxide Nanoparticles Through Iron Combustion</h3>
+          <p>Northeastern MIE Graduate Research Expo</p>
+        </div>
+      </div>
+
+      <h2>Posters</h2>
+      <div class="entry">
+        <div class="date">Oct 2024</div>
+        <div>
+          <h3>Generation of Iron Oxide Nanoparticles Through Iron Combustion</h3>
+          <p>Northeastern MIE Graduate Research Expo · Best Poster</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">Sep 2024</div>
+        <div>
+          <h3>An Overview of the Iron Fuel Cycle</h3>
+          <p>Radcliffe Science Symposium on Alternative Energy, Harvard</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">Jun 2024</div>
+        <div>
+          <h3>Understanding Rapid Iron Oxidation During Various Combustion Conditions for a Carbon-Free Energy Cycle</h3>
+          <p>Princeton-Combustion Institute Summer School</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">Apr 2024</div>
+        <div>
+          <h3>On the Performance of the Iron Fuel Cycle by Examining Combustion Products</h3>
+          <p>RISE, Northeastern University</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">Apr 2024</div>
+        <div>
+          <h3>Byproduct Generation in the Iron Fuel Cycle: Research and Outreach</h3>
+          <p>ASEE Northeastern Section Conference, Fairfield University</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">Dec 2022</div>
+        <div>
+          <h3>Thermoformable Boron Nitride Ceramics for Thermal Management</h3>
+          <p>Northeastern ME Capstone Day</p>
+        </div>
+      </div>
+
+      <h2>Involvements</h2>
+
+      <h3 class="sub">Teaching &amp; Mentoring</h3>
+      <div class="entry">
+        <div class="date">Aug 2025 – Present</div>
+        <div>
+          <h4>Petey Greene Program</h4>
+          <p>Tutoring incarcerated people in college-level math at the Boston Pre-Release Center, with training in teaching methods for system-impacted learners.</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">Jul – Aug 2025</div>
+        <div>
+          <h4>Young Scholar Program Mentor</h4>
+          <p>Mentored two high school seniors (~100 hrs) in research motivation, data analysis, and sample preparation; advised on their poster and presentation.</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">2023 – 2025</div>
+        <div>
+          <h4>Guest Lecturer</h4>
+          <p>"Utilizing additive manufacturing techniques to align thermally anisotropic particles" (ME 5640, Spring 2025) and a 3D printing mini-lecture (ME 2340, Fall 2023).</p>
+        </div>
+      </div>
+
+      <h3 class="sub">Outreach &amp; Science Communication</h3>
+      <div class="entry">
+        <div class="date">Jun – Sep 2024</div>
+        <div>
+          <h4>Engineering for Women's Health Conference</h4>
+          <p>Outreach coordinator on the 2024 program committee; organized event prep and created a mentor/mentee speed-dating activity between students and faculty.</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">2023 – 2024</div>
+        <div>
+          <h4>Building Bridges Presenter</h4>
+          <p>"Engineering with Fire": energy generation and iron-fuel research paired with live combustion demonstrations. "Cool Materials": thermal management with a guided-play station.</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">2024 – 2025</div>
+        <div>
+          <h4>Science Fair Judge</h4>
+          <p>Volunteer judge at the Broadmeadow Elementary School Science Fair, questioning students on their process and possible next steps.</p>
+        </div>
+      </div>
+
+      <h3 class="sub">Leadership</h3>
+      <div class="entry">
+        <div class="date">2020 – 2021</div>
+        <div>
+          <h4>Data Team Lead, Sunrise Movement</h4>
+          <p>Led data and IT infrastructure for a campus hub of the national youth climate organization during the 2020 election cycle.</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="date">2019 – 2021</div>
+        <div>
+          <h4>Sorority &amp; Panhellenic Leadership</h4>
+          <p>Educational Programming Co-Chair, Sigma Sigma Sigma (2019–2020); Rho Gamma recruitment counselor advising ~70 first-year students through Panhellenic recruitment (2020–2021).</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="theme.js"></script>
+  </body>
+</html>
