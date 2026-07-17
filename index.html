@@ -44,6 +44,12 @@
         flex: 1;
         padding: 40px;
       }
+      .photo {
+        float: left;
+        width: 140px;
+        margin: 0 20px 12px 0;
+        border-radius: 8px;
+      }
       .card p {
         line-height: 22px;
       }
@@ -70,6 +76,7 @@
       </div>
 
       <div class="card">
+        <img class="photo" src="pictures/profile.jpg" alt="Echo St. Germain" />
         <p>
           <span class="hi">Hi</span>, welcome to my website. I'm Echo St. Germain, a PhD candidate at
           Northeastern University studying iron particle ignition and combustion,
@@ -87,7 +94,7 @@
       <div class="box">
         <h2>Professional</h2>
         <a href="cv.html">CV</a>
-        <a href="https://scholar.google.com/">Google Scholar</a>
+        <a href="https://scholar.google.com/citations?hl=en&user=p5yXdvUAAAAJ">Google Scholar</a>
       </div>
 
       <div class="box">
@@ -96,19 +103,6 @@
       </div>
     </div>
 
-    <script>
-      function setTheme(bg, text) {
-        document.body.style.setProperty('--bg', bg);
-        document.body.style.setProperty('--text', text);
-        localStorage.setItem('bg', bg);
-        localStorage.setItem('text', text);
-      }
-
-      const savedBg = localStorage.getItem('bg');
-      const savedText = localStorage.getItem('text');
-      if (savedBg && savedText) {
-        setTheme(savedBg, savedText);
-      }
-    </script>
+    <script src="theme.js"></script>
   </body>
 </html>
