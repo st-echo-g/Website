@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="data:," />
-    <title>Echo St. Germain · Links</title>
+    <title>Echo St. Germain's Website</title>
     <style>
       body {
-        --bg: #d9d9d9;
-        --text: #000000;
+        --bg: hsl(217, 20%, 30%);
+        --text: #ffffff;
         background: var(--bg);
         color: var(--text);
         font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -15,402 +15,156 @@
         margin: 0 auto;
         padding: 40px clamp(20px, 8vw, 200px) 60px;
       }
-      h1, h2, h3 {
+      h1, h2 {
         font-family: Georgia, "Times New Roman", serif;
       }
-      a {
-        color: var(--text);
+      .card, .box, .theme {
+        border: 1px solid var(--text);
+        border-radius: 0;
+        box-shadow: 4px 4px 0 var(--text);
       }
-      .back {
-        display: inline-block;
-        margin-bottom: 24px;
+      .top, .row, .theme {
+        display: flex;
+        gap: 20px;
       }
-      h1 {
-        margin-top: 0;
+      .row, .theme {
+        margin-top: 40px;
       }
-      h2 {
-        display: inline;
-        border-bottom: 1px solid var(--text);
-        padding-bottom: 6px;
+      .theme {
+        padding: 10px 24px;
       }
-      details {
-        margin-top: 48px;
+      .theme input[type="range"] {
+        flex: 1;
+        min-width: 0;
+        -webkit-appearance: none;
+        appearance: none;
+        height: 2px;
+        background: var(--text);
       }
-      summary {
+      .theme input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 12px;
+        height: 12px;
+        background: var(--text);
+        transform: rotate(45deg);
         cursor: pointer;
       }
-      h3 {
-        margin-top: 32px;
+      .theme input[type="range"]::-moz-range-thumb {
+        width: 12px;
+        height: 12px;
+        background: var(--text);
+        border: none;
+        border-radius: 0;
+        transform: rotate(45deg);
+        cursor: pointer;
       }
-      h3:first-of-type {
+      @media (max-width: 600px) {
+        .top, .row, .theme {
+          flex-direction: column;
+        }
+      }
+      .card, .box {
+        flex: 1;
+      }
+      .card {
+        padding: 56px;
+        min-height: 280px;
+      }
+      .box {
+        padding: 40px;
+        min-height: 220px;
+      }
+      .photo {
+        float: left;
+        width: 140px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        margin: 0 20px 12px 0;
+        border-radius: 0;
+        box-shadow: 4px 4px 0 var(--text);
+      }
+      .card p {
+        line-height: 22px;
+      }
+      .hi {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+      .box h2 {
         margin-top: 0;
       }
-      .note {
-        max-width: 60ch;
-        line-height: 1.6;
-      }
-      .entry {
-        padding: 10px 0;
-        border-bottom: 1px solid color-mix(in srgb, var(--text) 25%, transparent);
-      }
-      a.title {
-        font-weight: bold;
-        text-decoration: none;
-      }
-      a.title:hover {
-        text-decoration: underline;
-      }
-      .entry .source {
+      .box a {
         display: block;
-        font-size: 0.8rem;
-        opacity: 0.7;
-      }
-      .entry p {
-        margin: 4px 0 0;
-        font-size: 0.9rem;
+        color: var(--text);
       }
     </style>
   </head>
   <body>
-    <a class="back" href="index.html">&larr; Home</a>
-    <h1>Links</h1>
+    <div class="top">
+      <div class="card">
+        <img class="photo" src="pictures/profile.jpg" alt="Echo St. Germain" />
+        <p>
+          <span class="hi">Hi</span>, welcome to my website. I'm Echo St. Germain, a PhD candidate at
+          Northeastern University studying iron particle ignition and combustion,
+          exploring iron as a zero-carbon, recyclable fuel. My research looks at
+          how oxide layers form on iron particles during storage, how furnace
+          heating rates affect ignitability, and what conditions lead to complete
+          combustion. Outside the lab I work as a Communication Lab Fellow at
+          Northeastern where I support graduate students with research posters
+          and figures. I also take part in STEM outreach across the Boston area
+          and volunteer with local organizations where my skills can be used.
+        </p>
+      </div>
+    </div>
 
-    <!-- ═══ RESOURCES ═══ -->
-    <details>
-      <summary><h2>Resources</h2></summary>
-
-      <div class="entry">
-        <a class="title" href="https://color.adobe.com/create/image" target="_blank" rel="noopener">Extract Theme from Image</a>
-        <span class="source">color.adobe.com</span>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://color.adobe.com/create/color-contrast-analyzer" target="_blank" rel="noopener">Color Contrast Analyzer</a>
-        <span class="source">color.adobe.com</span>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://colinpurrington.com/2012/02/example-of-bad-scientific-poster/" target="_blank" rel="noopener">Example of a Bad Scientific Poster</a>
-        <span class="source">colinpurrington.com</span>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://thenounproject.com/" target="_blank" rel="noopener">The Noun Project</a>
-        <span class="source">thenounproject.com</span>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.rawgraphs.io/" target="_blank" rel="noopener">RAWGraphs</a>
-        <span class="source">rawgraphs.io</span>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://seaborn.pydata.org/" target="_blank" rel="noopener">seaborn</a>
-        <span class="source">seaborn.pydata.org</span>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://archive.is/" target="_blank" rel="noopener">archive.is</a>
-        <span class="source">archive.is</span>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.atlascope.org/" target="_blank" rel="noopener">Atlascope</a>
-        <span class="source">atlascope.org</span>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://shapecatcher.com/" target="_blank" rel="noopener">Shapecatcher</a>
-        <span class="source">shapecatcher.com</span>
-      </div>
-    </details>
-
-    <!-- ═══ WEBSITES ═══ -->
-    <details>
-      <summary><h2>Websites</h2></summary>
-
-      <h3>Personal sites</h3>
-      <div class="entry">
-        <a class="title" href="https://ribo.zone/" target="_blank" rel="noopener">ribo.zone</a>
-        <p>a room, a scrapbook, a laboratory...</p>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://textures.neocities.org/" target="_blank" rel="noopener">TextureTown</a>
-        <p>Many many textures for you to download for your websites and 3D worlds, all for freeeeeeeeeeeeeeee! :^]</p>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://meewillis.neocities.org/" target="_blank" rel="noopener">meewillis</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://macwright.com/" target="_blank" rel="noopener">macwright.com</a>
-        <p>The blog, projects, and assorted output of Tom MacWright</p>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://baccyflap.com/mus/" target="_blank" rel="noopener">the museum | baccyflap.com</a>
-        <p>the last homely page east of the tubes</p>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://colinpurrington.com/" target="_blank" rel="noopener">Colin Purrington</a>
-        <p>Science communication, poster design advice, and assorted writing</p>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://colinpurrington.smugmug.com/" target="_blank" rel="noopener">Colin Purrington Photography</a>
+    <div class="row">
+      <div class="box">
+        <h2>Professional</h2>
+        <a href="cv.html">CV</a>
+        <a href="https://scholar.google.com/citations?hl=en&amp;user=p5yXdvUAAAAJ">Google Scholar</a>
       </div>
 
-      <h3>Cool visuals / fun things</h3>
-      <div class="entry">
-        <a class="title" href="https://earth.nullschool.net/" target="_blank" rel="noopener">earth.nullschool.net</a>
-        <p>See current wind, weather, ocean, and pollution conditions, as forecast by supercomputers, on an interactive animated map. Updated every three hours.</p>
+      <div class="box">
+        <h2>Personal</h2>
+        <a href="photography.html">Photography</a>
+        <a href="links.html">Links</a>
       </div>
-      <div class="entry">
-        <a class="title" href="https://worldwidetelescope.org/webclient/" target="_blank" rel="noopener">WorldWide Telescope</a>
-        <p>Worldwide Telescope is a tool for showcasing astronomical data and knowledge.</p>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://informationisbeautiful.net/" target="_blank" rel="noopener">Information is Beautiful</a>
-        <p>Distilling the world's data, information &amp; knowledge into beautiful infographics &amp; visualizations</p>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://radio.garden/" target="_blank" rel="noopener">radio.garden</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.histography.io/" target="_blank" rel="noopener">histography.io</a>
-        <p>Histography is an interactive timeline that spans across 14 billion years of history, from the Big Bang to 2015</p>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://explorabl.es/" target="_blank" rel="noopener">Explorable Explanations</a>
-        <p>a hub for learning through play</p>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://pudding.cool/" target="_blank" rel="noopener">The Pudding</a>
-        <p>The Pudding explains ideas with visual essays.</p>
-      </div>
+    </div>
 
-      <h3>Medium-form writing</h3>
-      <div class="entry">
-        <a class="title" href="https://worksinprogress.co/" target="_blank" rel="noopener">Works in Progress</a>
-        <p>A magazine dedicated to new and underrated ideas to improve the world, featuring original writing from the world's most interesting thinkers.</p>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://asteriskmag.com/" target="_blank" rel="noopener">Asterisk</a>
-        <p>Asterisk Magazine covers science, emerging technologies, economics, politics, culture, global health, threats to human development and flourishing.</p>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.palladiummag.com/" target="_blank" rel="noopener">Palladium</a>
-        <p>Palladium is a San Francisco-based non-partisan publication that explores the future of governance and society through journalism, analysis, and philosophy.</p>
-      </div>
-
-      <h3>Things I think about at work</h3>
-      <div class="entry">
-        <a class="title" href="https://worrydream.com/ClimateChange/#funding" target="_blank" rel="noopener">What can a technologist do about climate change?</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://ourworldindata.org/" target="_blank" rel="noopener">Our World in Data</a>
-        <p>Research and data to make progress against the world's largest problems</p>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.icos-cp.eu/" target="_blank" rel="noopener">ICOS Carbon Portal</a>
-        <p>Standardised Greenhouse Gas Measurements Throughout Europe</p>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://globalenergymonitor.org/" target="_blank" rel="noopener">Global Energy Monitor</a>
-      </div>
-    </details>
-
-    <!-- ═══ LOTS OF WORDS ═══ -->
-    <details>
-      <summary><h2>Lots of words</h2></summary>
-
-      <h3>Iron fuel</h3>
-      <p class="note">
-        I occasionally find myself explaining iron fuel in casual conversation, usually to
-        someone who has never heard of it or is skeptical. Here are links so I can cite actual
-        company names and research when these conversations come up.
-      </p>
-      <div class="entry">
-        <a class="title" href="https://www.ironfueltechnology.com/" target="_blank" rel="noopener">RIFT &mdash; Iron Fuel Technology Built for Impact</a>
-        <span class="source">ironfueltechnology.com</span>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.pometon.com/en/iron-fuel-ecosystem/" target="_blank" rel="noopener">Iron Fuel Ecosystem</a>
-        <span class="source">pometon.com</span>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.metalot.org/iron-power/" target="_blank" rel="noopener">Iron Power</a>
-        <span class="source">metalot.org</span>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.tutcosureheat.com/rift-iron-fuel-technology" target="_blank" rel="noopener">TUTCO SureHeat Partners with RIFT to Advance Iron Fuel Technology</a>
-        <span class="source">tutcosureheat.com</span>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.canarymedia.com/articles/clean-energy-manufacturing/metal-powders-help-fuel-rockets-now-factories" target="_blank" rel="noopener">Metal Powders Help Fuel Rockets. Now Factories.</a>
-        <span class="source">canarymedia.com</span>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.sciencedirect.com/science/article/pii/S0306261915011071" target="_blank" rel="noopener">Recyclable metal fuels for clean and compact zero-carbon power</a>
-        <span class="source">sciencedirect.com &mdash; Applied Energy, 2015</span>
-      </div>
-    </details>
-
-    <!-- ═══ YOUTUBERS ═══ -->
-    <details>
-      <summary><h2>YouTubers</h2></summary>
-
-      <h3>Science</h3>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@physicsforthebirds" target="_blank" rel="noopener">Physics for the Birds</a>
-        <a class="title" href="https://www.youtube.com/watch?v=Dk0dB4HYnu0" target="_blank" rel="noopener">&#9654; The Double Bubble Theorem</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@plantsinjars" target="_blank" rel="noopener">Plants in Jars</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@acollierastro" target="_blank" rel="noopener">Angela Collier</a>
-        <a class="title" href="https://www.youtube.com/watch?v=J82N4F4jlDI" target="_blank" rel="noopener">&#9654; the best science podcast isn't what you think</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@USCSB" target="_blank" rel="noopener">U.S. Chemical Safety Board</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@BobbyBroccoli" target="_blank" rel="noopener">BobbyBroccoli</a>
-        <a class="title" href="https://www.youtube.com/watch?v=ett_8wLJ87U" target="_blank" rel="noopener">&#9654; The man who faked human cloning</a>
-      </div>
-
-      <h3>Mathematics &amp; computation</h3>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@MQTate" target="_blank" rel="noopener">MQTate</a>
-        <a class="title" href="https://www.youtube.com/watch?v=OyOrE6-6H-Y" target="_blank" rel="noopener">&#9654; Tatefacts: Iron</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@vcubingx" target="_blank" rel="noopener">vcubingx</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@udiprod" target="_blank" rel="noopener">udiprod</a>
-        <a class="title" href="https://www.youtube.com/watch?v=xV1aKUdlljU" target="_blank" rel="noopener">&#9654; [Laser] Firing squad synchronization problem</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@morphocular" target="_blank" rel="noopener">Morphocular</a>
-        <a class="title" href="https://www.youtube.com/watch?v=jNpKKDekS6k" target="_blank" rel="noopener">&#9654; How to do two (or more) integrals with just one</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@standupmaths" target="_blank" rel="noopener">Stand-up Maths</a>
-        <a class="title" href="https://www.youtube.com/watch?v=x3dE-NJ1UDQ" target="_blank" rel="noopener">&#9654; How to break Magic the Gathering</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@PrimerBlobs" target="_blank" rel="noopener">Primer</a>
-        <a class="title" href="https://www.youtube.com/watch?v=yhO6jfHPFQU" target="_blank" rel="noopener">&#9654; Simulating alternate voting systems</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@3blue1brown" target="_blank" rel="noopener">3Blue1Brown</a>
-        <a class="title" href="https://www.youtube.com/watch?v=ltLUadnCyi0" target="_blank" rel="noopener">&#9654; A tale of two problem solvers | Average cube shadow area</a>
-      </div>
-
-      <h3>Climate &amp; environment</h3>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@makethingwithhand" target="_blank" rel="noopener">Make Thing With Hand</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@terramater" target="_blank" rel="noopener">Terra Mater</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@ClimateTown" target="_blank" rel="noopener">Climate Town</a>
-        <a class="title" href="https://www.youtube.com/watch?v=K2oL4SFwkkw" target="_blank" rel="noopener">&#9654; Natural Gas Is Scamming America</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@SimonClark" target="_blank" rel="noopener">Simon Clark</a>
-        <a class="title" href="https://www.youtube.com/watch?v=bX1n25rN8yg" target="_blank" rel="noopener">&#9654; You've been lied to about Net Zero</a>
-      </div>
-
-      <h3>Urbanism</h3>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@NotJustBikes" target="_blank" rel="noopener">Not Just Bikes</a>
-      </div>
-
-      <h3>History &amp; documentary</h3>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@DanielsimsSteiner" target="_blank" rel="noopener">Daniel Steiner</a>
-        <a class="title" href="https://www.youtube.com/watch?v=UA63zaIXCZw" target="_blank" rel="noopener">&#9654; Boston's Map, Explained</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@hillelwayne3236" target="_blank" rel="noopener">Hillel Wayne</a>
-        <a class="title" href="https://www.youtube.com/watch?v=cQ7bcCrJMHc" target="_blank" rel="noopener">&#9654; A Brief Introduction to Esoteric Programming Languages</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@NakariSpeardane" target="_blank" rel="noopener">Nakari Speardane</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@BrightSunFilms" target="_blank" rel="noopener">Bright Sun Films</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@Defunctland" target="_blank" rel="noopener">Defunctland</a>
-      </div>
-
-      <h3>Technology &amp; games</h3>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@TechnologyConnextras" target="_blank" rel="noopener">Technology Connextras</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@GMTK" target="_blank" rel="noopener">Game Maker's Toolkit</a>
-      </div>
-
-      <h3>Craft &amp; making</h3>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@joshuacooksthendraws" target="_blank" rel="noopener">joshuacooksthendraws</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@manoanimationstudios" target="_blank" rel="noopener">Mano Animation Studios</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@RickiHirsch" target="_blank" rel="noopener">Ricki Hirsch</a>
-        <a class="title" href="https://www.youtube.com/watch?v=3XGp4DP6Xec" target="_blank" rel="noopener">&#9654; What If You Only Get Lucky Once?</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@HBMmaster" target="_blank" rel="noopener">jan Misali</a>
-        <a class="title" href="https://www.youtube.com/watch?v=KmfdeWd0RMk" target="_blank" rel="noopener">&#9654; a joke about measurement</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@MicarahTewers" target="_blank" rel="noopener">Micarah Tewers</a>
-      </div>
-
-      <h3>Politics &amp; economics</h3>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@Shaun_vids" target="_blank" rel="noopener">Shaun</a>
-        <a class="title" href="https://www.youtube.com/watch?v=L30_hfuZoQ8" target="_blank" rel="noopener">&#9654; The Death Penalty feat. PragerU</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@thefinancialdiet" target="_blank" rel="noopener">The Financial Diet</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@GoodWorkMB" target="_blank" rel="noopener">Good Work</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@moreperfectunion" target="_blank" rel="noopener">More Perfect Union</a>
-      </div>
-
-      <h3>Video essays</h3>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@BelowTheFray" target="_blank" rel="noopener">Below the Fray</a>
-        <a class="title" href="https://www.youtube.com/watch?v=2o56DEVdTXI" target="_blank" rel="noopener">&#9654; Learning to Love Sci-fi (with Lincoln Michel)</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@sarahdavisbaker" target="_blank" rel="noopener">Sarah Davis Baker</a>
-        <a class="title" href="https://www.youtube.com/watch?v=oYlcUbLAFmw" target="_blank" rel="noopener">&#9654; The Internet Used to Be a Place</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@KeyanCarlile" target="_blank" rel="noopener">Keyan Carlile</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@AliceCappelle" target="_blank" rel="noopener">Alice Cappelle</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@FoldingIdeas" target="_blank" rel="noopener">Folding Ideas</a>
-        <a class="title" href="https://www.youtube.com/watch?v=2UDXdqqJQPE" target="_blank" rel="noopener">&#9654; Mantracks: a True Story of Fake Fossils</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@JennyNicholson" target="_blank" rel="noopener">Jenny Nicholson</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@JacobGeller" target="_blank" rel="noopener">Jacob Geller</a>
-        <a class="title" href="https://www.youtube.com/watch?v=6oqO3FXSecM" target="_blank" rel="noopener">&#9654; Art for No One</a>
-      </div>
-      <div class="entry">
-        <a class="title" href="https://www.youtube.com/@Nerdwriter1" target="_blank" rel="noopener">Nerdwriter1</a>
-      </div>
-    </details>
+    <footer class="theme">
+      <input type="range" id="hue" title="Hue" min="0" max="360" value="217" oninput="updateColor()" />
+      <input type="range" id="saturation" title="Saturation" min="0" max="100" value="20" oninput="updateColor()" />
+      <input type="range" id="lightness" title="Lightness" min="10" max="95" value="30" oninput="updateColor()" />
+    </footer>
 
     <script src="theme.js"></script>
+    <script>
+      const hueInput = document.getElementById('hue');
+      const satInput = document.getElementById('saturation');
+      const lightInput = document.getElementById('lightness');
+
+      // Restore slider positions from a previous visit, so they match the theme
+      // theme.js already applied before this script ran.
+      const savedHue = localStorage.getItem('hue');
+      const savedSat = localStorage.getItem('sat');
+      const savedLight = localStorage.getItem('light');
+      if (savedHue && savedSat && savedLight) {
+        hueInput.value = savedHue;
+        satInput.value = savedSat;
+        lightInput.value = savedLight;
+      }
+
+      function updateColor() {
+        const hue = hueInput.value;
+        const sat = satInput.value;
+        const light = lightInput.value;
+        const bg = `hsl(${hue}, ${sat}%, ${light}%)`;
+        const text = light > 55 ? '#000000' : '#ffffff';
+        setTheme(bg, text);
+        localStorage.setItem('hue', hue);
+        localStorage.setItem('sat', sat);
+        localStorage.setItem('light', light);
+      }
+    </script>
   </body>
 </html>
