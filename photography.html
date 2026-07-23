@@ -90,7 +90,10 @@
       async function loadPhotoInfo() {
         const info = {};
         try {
-          const res = await fetch('photos.csv');
+          // Cache-bust so edits to photos.csv always show up, instead of
+          // waiting out the CDN's cache (which can persist far longer than
+          // its stated lifetime on low-traffic edge nodes).
+          const res = await fetch(`photos.csv?v=${Date.now()}`);
           const text = await res.text();
           const lines = text.split(/\r?\n/).filter((line) => line.length > 0);
           for (const line of lines.slice(1)) {
