@@ -157,4 +157,37 @@
             ? photos.filter((img) => (img.dataset.tags || '').split(',').includes(selectedTag))
             : photos;
 
-          const columnCount =
+          const columnCount = window.innerWidth <= 500 ? 2 : 4;
+          gallery.innerHTML = '';
+          const columns = [];
+          for (let i = 0; i < columnCount; i++) {
+            const col = document.createElement('div');
+            col.className = 'col';
+            gallery.appendChild(col);
+            columns.push(col);
+          }
+          visible.forEach((img, i) => columns[i % columnCount].appendChild(img));
+        }
+
+        layout();
+        window.addEventListener('resize', layout);
+        tagFilter.addEventListener('change', layout);
+
+        // Reveal the gallery once every image has loaded, so the reflow is hidden.
+        let remaining = photos.length;
+        const markLoaded = () => {
+          remaining--;
+          if (remaining <= 0) gallery.classList.add('ready');
+        };
+        photos.forEach((img) => {
+          if (img.complete) markLoaded();
+          else {
+            img.addEventListener('load', markLoaded, { once: true });
+            img.addEventListener('error', markLoaded, { once: true });
+          }
+        });
+      });
+    </script>
+    <script src="theme.js"></script>
+  </body>
+</html>
