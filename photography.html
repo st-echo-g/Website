@@ -35,8 +35,26 @@
         margin-bottom: 20px;
       }
       .controls select {
+        font-family: inherit;
         font-size: 1em;
-        padding: 4px 8px;
+        padding: 6px 32px 6px 10px;
+        background-color: var(--bg);
+        color: var(--text);
+        border: 1px solid var(--text);
+        border-radius: 0;
+        appearance: none;
+        -webkit-appearance: none;
+        cursor: pointer;
+        background-image:
+          linear-gradient(45deg, transparent 50%, var(--text) 50%),
+          linear-gradient(135deg, var(--text) 50%, transparent 50%);
+        background-position: calc(100% - 18px) center, calc(100% - 13px) center;
+        background-size: 5px 5px, 5px 5px;
+        background-repeat: no-repeat;
+      }
+      .controls select:focus {
+        outline: 2px solid var(--text);
+        outline-offset: 2px;
       }
     </style>
   </head>
@@ -55,7 +73,7 @@
 
     <script>
       const gallery = document.querySelector('.gallery');
-      const TOTAL = 70;
+      const TOTAL = 88;
 
       // Parse a CSV line, honoring double-quoted fields that may contain commas.
       function parseCsvLine(line) {
@@ -127,15 +145,18 @@
       buildPhotos().then((photos) => {
         const tagFilter = document.getElementById('tagFilter');
 
-        // Populate the tag dropdown with every tag found across all photos.
-        const allTags = new Set();
+        // Populate the tag dropdown with every tag found across all photos,
+        // alongside how many photos carry each one.
+        const tagCounts = new Map();
         photos.forEach((img) => {
-          (img.dataset.tags || '').split(',').filter(Boolean).forEach((tag) => allTags.add(tag));
+          (img.dataset.tags || '').split(',').filter(Boolean).forEach((tag) => {
+            tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+          });
         });
-        [...allTags].sort().forEach((tag) => {
+        [...tagCounts.keys()].sort().forEach((tag) => {
           const option = document.createElement('option');
           option.value = tag;
-          option.textContent = tag;
+          option.textContent = `${tag} (${tagCounts.get(tag)})`;
           tagFilter.appendChild(option);
         });
 
