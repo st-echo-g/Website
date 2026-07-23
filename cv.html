@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" href="data:," />
     <title>Echo St. Germain · CV</title>
     <style>
       body {
@@ -9,9 +10,13 @@
         --text: #000000;
         background: var(--bg);
         color: var(--text);
+        font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
         max-width: 1100px;
         margin: 0 auto;
         padding: 40px clamp(20px, 8vw, 200px) 60px;
+      }
+      h1, h2 {
+        font-family: Georgia, "Times New Roman", serif;
       }
       a {
         color: var(--text);
@@ -22,7 +27,7 @@
       }
       .card {
         border: 1px solid var(--text);
-        border-radius: 8px;
+        border-radius: 0;
         box-shadow: 4px 4px 0 var(--text);
         padding: 40px;
       }
