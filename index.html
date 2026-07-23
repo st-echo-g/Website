@@ -70,6 +70,10 @@
         border-radius: 0;
         box-shadow: 4px 4px 0 var(--text);
       }
+      .card h1 {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
       .card p {
         line-height: 22px;
       }
@@ -88,17 +92,37 @@
   <body>
     <div class="top">
       <div class="card">
+        <h1>Welcome to Echo's Site</h1>
         <img class="photo" src="pictures/profile.jpg" alt="Echo St. Germain" />
         <p>
-          <span class="hi">Hi</span>, welcome to my website. I'm Echo St. Germain, a PhD candidate at
-          Northeastern University studying iron particle ignition and combustion,
-          exploring iron as a zero-carbon, recyclable fuel. My research looks at
-          how oxide layers form on iron particles during storage, how furnace
-          heating rates affect ignitability, and what conditions lead to complete
-          combustion. Outside the lab I work as a Communication Lab Fellow at
-          Northeastern where I support graduate students with research posters
-          and figures. I also take part in STEM outreach across the Boston area
-          and volunteer with local organizations where my skills can be used.
+          I'm a Boston resident and PhD candidate in the Mechanical
+          Engineering program at Northeastern University, where I
+          study/research <strong>carbon-free combustion through iron powder</strong>,
+          a project that spans multiple labs, universities, and continents. I
+          focus on the variables that change the ignition temperature of iron
+          powder, including how that temperature shifts with powder
+          morphology, and I examine combustion byproducts for future
+          reuse/reduction through the iron fuel cycle, along with the
+          potentially useful properties of the nanoparticles that form around
+          the micrometric particles during combustion.
+        </p>
+        <p>
+          Outside the lab, I support other graduate students
+          in sharing their research as a Communication Lab Fellow, present to
+          high school and undergraduate students through STEM outreach, and
+          volunteer with a few local groups. I like working alongside people
+          who <strong>care about expanding educational opportunities and/or
+          climate advocacy that includes social justice</strong>. If any of
+          this sounds interesting, reach
+          out at <span id="email-link"></span>. I'd love to talk about some
+          of the groups doing this work in Boston and how I might be able to
+          help.
+        </p>
+        <p>
+          Beyond all of that, I paint/garden/take photos/boardgames/videogames.
+          More than one mentee has called me "artsy," which
+          probably shows in this website: part professional portfolio, part
+          space for me to organize and catalog my own projects/thoughts.
         </p>
       </div>
     </div>
@@ -106,8 +130,10 @@
     <div class="row">
       <div class="box">
         <h2>Professional</h2>
+        <a href="stem-outreach.html">STEM Outreach</a>
         <a href="cv.html">CV</a>
         <a href="https://scholar.google.com/citations?hl=en&amp;user=p5yXdvUAAAAJ">Google Scholar</a>
+        <a href="https://www.linkedin.com/in/echost/">LinkedIn</a>
       </div>
 
       <div class="box">
@@ -123,6 +149,17 @@
       <input type="range" id="lightness" title="Lightness" min="10" max="95" value="30" oninput="updateColor()" />
     </footer>
 
+    <script>
+      // Build the mailto link at runtime so scrapers reading the raw HTML
+      // don't find a plain-text email address to harvest.
+      (function () {
+        const user = 'echo.st.germain';
+        const domain = 'gmail.com';
+        const address = user + '@' + domain;
+        document.getElementById('email-link').innerHTML =
+          '<a href="mailto:' + address + '">' + address + '</a>';
+      })();
+    </script>
     <script src="theme.js"></script>
     <script>
       const hueInput = document.getElementById('hue');
