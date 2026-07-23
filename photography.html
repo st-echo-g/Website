@@ -57,35 +57,102 @@
       const gallery = document.querySelector('.gallery');
       const TOTAL = 70;
 
-      // Build the list of photos: pictures/photo-01-small.jpg ... photo-70-small.jpg
-      const photos = [];
-      for (let n = 1; n <= TOTAL; n++) {
-        const img = document.createElement('img');
-        img.src = `pictures/photo-${String(n).padStart(2, '0')}-small.jpg`;
-        img.alt = 'Photograph';
-        img.loading = 'lazy';
-        photos.push(img);
-      }
-
-      // Deal the photos across the columns so the top row fills first.
-      function layout() {
-        const columnCount = window.innerWidth <= 500 ? 2 : 4;
-        gallery.innerHTML = '';
-        const columns = [];
-        for (let i = 0; i < columnCount; i++) {
-          const col = document.createElement('div');
-          col.className = 'col';
-          gallery.appendChild(col);
-          columns.push(col);
+      // Parse a CSV line, honoring double-quoted fields that may contain commas.
+      function parseCsvLine(line) {
+        const fields = [];
+        let field = '';
+        let inQuotes = false;
+        for (let i = 0; i < line.length; i++) {
+          const ch = line[i];
+          if (inQuotes) {
+            if (ch === '"' && line[i + 1] === '"') {
+              field += '"';
+              i++;
+            } else if (ch === '"') {
+              inQuotes = false;
+            } else {
+              field += ch;
+            }
+          } else if (ch === '"') {
+            inQuotes = true;
+          } else if (ch === ',') {
+            fields.push(field);
+            field = '';
+          } else {
+            field += ch;
+          }
         }
-        photos.forEach((img, i) => columns[i % columnCount].appendChild(img));
+        fields.push(field);
+        return fields;
       }
 
-      layout();
-      window.addEventListener('resize', layout);
+      // Load photos.csv (Filename, Description, Tags) into a map keyed by filename.
+      async function loadPhotoInfo() {
+        const info = {};
+        try {
+          const res = await fetch('photos.csv');
+          const text = await res.text();
+          const lines = text.split(/\r?\n/).filter((line) => line.length > 0);
+          for (const line of lines.slice(1)) {
+            const [filename, description, tags] = parseCsvLine(line);
+            info[filename] = { description: description || '', tags: tags || '' };
+          }
+        } catch (err) {
+          console.warn('Could not load photos.csv', err);
+        }
+        return info;
+      }
 
-      // Reveal the gallery once everything has loaded, so the reflow is hidden.
-      window.addEventListener('load', () => gallery.classList.add('ready'));
+      // Build the list of photos: pictures/photo-01-small.jpg ... photo-70-small.jpg
+      async function buildPhotos() {
+        const info = await loadPhotoInfo();
+        const photos = [];
+        for (let n = 1; n <= TOTAL; n++) {
+          const filename = `photo-${String(n).padStart(2, '0')}-small.jpg`;
+          const { description = '', tags = '' } = info[filename] || {};
+          const img = document.createElement('img');
+          img.src = `pictures/${filename}`;
+          img.alt = description || 'Photograph';
+          if (description) img.title = description;
+          if (tags) img.dataset.tags = tags;
+          img.loading = 'lazy';
+          photos.push(img);
+        }
+        return photos;
+      }
+
+      buildPhotos().then((photos) => {
+        // Deal the photos across the columns so the top row fills first.
+        function layout() {
+          const columnCount = window.innerWidth <= 500 ? 2 : 4;
+          gallery.innerHTML = '';
+          const columns = [];
+          for (let i = 0; i < columnCount; i++) {
+            const col = document.createElement('div');
+            col.className = 'col';
+            gallery.appendChild(col);
+            columns.push(col);
+          }
+          photos.forEach((img, i) => columns[i % columnCount].appendChild(img));
+        }
+
+        layout();
+        window.addEventListener('resize', layout);
+
+        // Reveal the gallery once every image has loaded, so the reflow is hidden.
+        let remaining = photos.length;
+        const markLoaded = () => {
+          remaining--;
+          if (remaining <= 0) gallery.classList.add('ready');
+        };
+        photos.forEach((img) => {
+          if (img.complete) markLoaded();
+          else {
+            img.addEventListener('load', markLoaded, { once: true });
+            img.addEventListener('error', markLoaded, { once: true });
+          }
+        });
+      });
     </script>
     <script src="theme.js"></script>
   </body>
