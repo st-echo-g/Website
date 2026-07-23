@@ -45,11 +45,25 @@
         border-radius: 8px;
         border: 1px solid var(--text);
       }
+      .controls {
+        margin-bottom: 20px;
+      }
+      .controls select {
+        font-size: 1em;
+        padding: 4px 8px;
+      }
     </style>
   </head>
   <body>
     <a class="back" href="index.html">&larr; Home</a>
     <h1>Photography</h1>
+
+    <div class="controls">
+      <label for="tagFilter">Filter by tag: </label>
+      <select id="tagFilter">
+        <option value="">All</option>
+      </select>
+    </div>
 
     <div class="gallery"></div>
 
@@ -122,38 +136,25 @@
       }
 
       buildPhotos().then((photos) => {
-        // Deal the photos across the columns so the top row fills first.
-        function layout() {
-          const columnCount = window.innerWidth <= 500 ? 2 : 4;
-          gallery.innerHTML = '';
-          const columns = [];
-          for (let i = 0; i < columnCount; i++) {
-            const col = document.createElement('div');
-            col.className = 'col';
-            gallery.appendChild(col);
-            columns.push(col);
-          }
-          photos.forEach((img, i) => columns[i % columnCount].appendChild(img));
-        }
+        const tagFilter = document.getElementById('tagFilter');
 
-        layout();
-        window.addEventListener('resize', layout);
-
-        // Reveal the gallery once every image has loaded, so the reflow is hidden.
-        let remaining = photos.length;
-        const markLoaded = () => {
-          remaining--;
-          if (remaining <= 0) gallery.classList.add('ready');
-        };
+        // Populate the tag dropdown with every tag found across all photos.
+        const allTags = new Set();
         photos.forEach((img) => {
-          if (img.complete) markLoaded();
-          else {
-            img.addEventListener('load', markLoaded, { once: true });
-            img.addEventListener('error', markLoaded, { once: true });
-          }
+          (img.dataset.tags || '').split(',').filter(Boolean).forEach((tag) => allTags.add(tag));
         });
-      });
-    </script>
-    <script src="theme.js"></script>
-  </body>
-</html>
+        [...allTags].sort().forEach((tag) => {
+          const option = document.createElement('option');
+          option.value = tag;
+          option.textContent = tag;
+          tagFilter.appendChild(option);
+        });
+
+        // Deal the visible photos across the columns so the top row fills first.
+        function layout() {
+          const selectedTag = tagFilter.value;
+          const visible = selectedTag
+            ? photos.filter((img) => (img.dataset.tags || '').split(',').includes(selectedTag))
+            : photos;
+
+          const columnCount =
